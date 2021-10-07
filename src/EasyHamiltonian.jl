@@ -4,5 +4,5 @@ module EasyHamiltonian
     include("hamiltonian_type.jl")
     include("expression.jl")
 
-
+    
 end
