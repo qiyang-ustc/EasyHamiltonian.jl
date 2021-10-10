@@ -91,6 +91,7 @@ end
 Then for users or developer:
 
 ```julia
+    using EasyHamiltonian:KitaevFermionsModel
     model = KitaevFermionsModel(1.0,1.0,1.0)
     hamiltonian = Hamiltonian(model)
     h_matrix = Matrix(hamiltonian)
