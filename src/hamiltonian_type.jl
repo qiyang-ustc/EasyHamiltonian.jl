@@ -10,3 +10,13 @@ abstract type AbstractElectronHamiltonian <: AbstractSpinfulFermionicHamiltonian
 abstract type AbstractSpinHamiltonian <: AbstractHamiltonian end
 
 abstract type AbstractBosonicHamiltonian <: AbstractHamiltonian end
+
+export Hamiltonian
+# Notice: Hamiltonian is a universal hamiltonian.
+struct Hamiltonian{HType<:AbstractHamiltonian,N}
+    ex :: HamiltonianExpression
+end
+
+const Electron = AbstractSpinfulFermionicHamiltonian
+Hamiltonian(ex,htype,N::Int) = Hamiltonian{htype,N}(ex)
+Hamiltonian(ex,htype::String,N::Int) = Hamiltonian{eval(Meta.parse(htype)),N}(ex)

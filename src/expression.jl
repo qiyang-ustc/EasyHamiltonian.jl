@@ -6,11 +6,13 @@ abstract type AbstractHamiltonianExpression end
 export HamiltonianExpression
 
 # ------------------------------------------------------
-using ITensors:Opsum
+using ITensors:OpSum
 struct HamiltonianExpression <: AbstractHamiltonianExpression
     ex :: OpSum
 end
 
+import Base.convert
+convert(::Type{HamiltonianExpression},op::OpSum) = HamiltonianExpression(op)
 HamiltonianExpression() = HamiltonianExpression(AutoMPO())
 
 
@@ -32,4 +34,3 @@ end
 function +(a::HamiltonianExpression,b)
     return HamiltonianExpression(a.ex + b)
 end
-
