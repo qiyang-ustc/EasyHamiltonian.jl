@@ -23,8 +23,10 @@ Type *AbstractHamiltonian* should be accepted by all different algorithms. So pa
 Functions to construct *AbstractHamiltonian*. The API should looks like:
 
 ``` julia
-    # Heisenberg Spin model
-    hamiltonian = HeisenbergXYZ(1.0,1.0,1.0)
+    # Kitaev model (BCS theory)
+    using EasyHamiltonian:KitaevFermionsModel
+    model = KitaevFermionsModel(1.0,1.0,1.0)
+    hamiltonian = Hamiltonian(model)
 ```
 
 If users want to define there own hamiltonian which is not defined in this package, a simple implementation will looks like this:
@@ -34,7 +36,7 @@ If users want to define there own hamiltonian which is not defined in this packa
     expression = HamiltonianExpression()
     expression += -1.0 ,"Cdagup",1,"Cup",2
     expression += -1.0 ,"Cdagdn",1,"Cdn",2
-    hamiltonian = Hamiltonian(expression,"Electrons",2)
+    hamiltonian = Hamiltonian(expression,"Electron",2)
 ```
 
 Then users only need to feed this hamiltonian into the following algorithm package.
