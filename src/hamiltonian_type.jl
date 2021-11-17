@@ -1,5 +1,12 @@
 # classification for different kinds of hamiltonian.
 # algorithm designer will need these type to adopt/reject hamiltonian.
+export AbstractHamiltonian
+export AbstractFermionicHamiltonian
+export AbstractSpinlessFermionicHamiltonian
+export AbstractSpinfulFermionicHamiltonian
+export AbstractElectronHamiltonian
+export AbstractSpinHamiltonian
+export AbstractBosonicHamiltonian
 
 abstract type AbstractHamiltonian end
 abstract type AbstractFermionicHamiltonian <: AbstractHamiltonian end
