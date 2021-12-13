@@ -39,11 +39,11 @@ function Hamiltonian(model::tJModel)
     ampo += -model.t ,"Cdagdn",1,"Cdn",2
     ampo += -model.t ,"Cdagdn",2,"Cdn",1
     
-    ampo += 0.5*model.J ,"Sz",1,"Sz",2
-    ampo += 0.25*model.J ,"S+",1,"S-",2
-    ampo += 0.25*model.J ,"S-",1,"S+",2
+    ampo += 1.0*model.J ,"Sz",1,"Sz",2
+    ampo += 0.5*model.J ,"S+",1,"S-",2
+    ampo += 0.5*model.J ,"S-",1,"S+",2
 
-    ampo += -0.125*model.J, "Ntot",1,"Ntot",2
+    ampo += -0.25*model.J, "Ntot",1,"Ntot",2
 
     return Hamiltonian(ampo,"Electron",2)
 end
